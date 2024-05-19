@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+    <html> 
+    <head>
+        <Title>Node Express</Title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    </head>
+    <body>
+<!--
+        <a href="/html/list.html">test list</a>
+-->
+        <div id="content"></div>
+        <script src="js/lib/jquery-3.2.1.min.js"></script>
+        <script src="js/lib/handlebars.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script id="entry-template" type="text/x-handlebars-template">
+            <div class="mt-5" style="font-size: 9px;">
+                <h2>죄목 없는 최신 현황판</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>예약, 반송, 문의</th>
+                            <th>담당</th>
+                            <th>물품명</th>
+                            <th>결제방식</th>
+                            <th>결제금액</th>
+                            <th>확인된<br>구입일자</th>
+                            <th>고장시 고객 주장(택배)<br>고장시 업체 주장(전화, 택배)</th>
+                            <th>고장내용<br>선발송 사유</th>
+                            <th>작업 히스토리<br>(수리자 이름등록)</th>
+                            <th>유상처리 목록</th>
+                            <th>비고(부품증가분)</th>
+                            <th>result</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each data}}
+                        <tr>
+                            <th scope="row">{{id}}</th>
+                            <th>{{status}}</th>
+                            <th>{{manager}}</th>
+                            <th>{{item_name}}</th>
+                            <th>{{payment_method}}</th>
+                            <th>{{payment_amount}}</th>
+                            <th>{{purchase_date}}</th>
+                            <th>{{memo}}</th>
+                            <th>{{fault_detail}}</th>
+                            <th>{{history}}</th>
+                            <th>{{payment_list}}</th>
+                            <th>{{remark}}</th>
+                            <th>{{result}}</th>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </script>
+        <script>
+            $(document).ready(function() {
+                // API 호출
+                $.ajax({
+                    url: 'localhost',
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // 템플릿 가져오기
+                        var source = document.getElementById("entry-template").innerHTML;
+
+                        // 템플릿 컴파일
+                        var template = Handlebars.compile(source);
+
+                        // 데이터를 템플릿에 바인딩
+                        var html = template({data: response});
+
+                        // 결과를 HTML에 삽입
+                        document.getElementById("content").innerHTML = html;
+                    },
+                    error: function(error) {
+                        console.error('Error fetching data', error);
+                    }
+                });
+            });
+        </script>
+        <script src="js/handlebars.test.js"></script>
+    </body>
+</html>
