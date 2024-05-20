@@ -6,18 +6,70 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     </head>
+    <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">AS</a>
+            <ul class="submenu">
+                <li><a href="#web-development">방문</a></li>
+                <li><a href="#app-development">택배</a></li>
+                <li><a href="#seo-development">용달</a></li>
+            </ul>
+        </li>
+        <li><a href="#services">Parts</a>
+            <ul class="submenu">
+                <li><a href="#web-development">선발송</a></li>
+                <li><a href="#app-development">증가</a></li>
+                <li><a href="#seo-development">감소</a></li>
+            </ul>
+        </li>
+        </ul>
+        
+    </ul>
     <body>
+        
+    <table>
+        <div class="form-container">
+            <h2>퀄리스포츠 AS 현황 안내</h2>
+            <form>
+                <input type="text" id="name" name="name" placeholder="이름" required>
+                <input type="text" id="contact" name="contact" placeholder="연락처" required>
+                <input type="text" id="mileage" name="mileage" placeholder="주행거리" required>
+                <input type="text" id="model" name="model" placeholder="모델" required>
+                <!-- Address Section Toggle -->
+                <input type="checkbox" id="addAddressCheckbox">
+                <label for="addAddressCheckbox">주소입력</label>
+                <div id="addressFields" style="display: none;">
+                <input type="text" id="street" name="street"placeholder="주소" required>
+                    
+                <label for="longContent">Enter Long Content:</label>
+                <textarea id="longContent" name="longContent" rows="4" cols="50"></textarea>
+                
+                <!-- Submit Button -->
+                <input type="submit" value="Submit">                                    
+                
+            </form>
+            
+        </div>
 
-        <a href="/html/list.html">test list</a>
-        <a href="/html/list2.html">test2 list</a>
+        
+    </table>    
+    
+    <span>
+        <input type="text" id="name2" name="name2" placeholder="이름2" required>
 
+    </span>
+
+        <!-- <a href="/html/list.html">test list</a>
+         다른 페이지 링크 걸기
+        <a href="/html/list2.html">test2 list</a> -->
+              
         <div id="content"></div>
         <script src="js/lib/jquery-3.2.1.min.js"></script>
         <script src="js/lib/handlebars.min.js"></script>
         <script src="js/lib/bootstrap.min.js"></script>
         <script id="entry-template" type="text/x-handlebars-template">
-            <div class="mt-5" style="font-size: 9px; margin: 30px;">
-                <h2>죄목 없는 최신 현황판</h2>
+            <div class="mt-5" style="font-size: 9px; margin: 50px;">
+                
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
@@ -61,6 +113,26 @@
             </div>
         </script>
         <script>
+            const addAddressCheckbox = document.getElementById('addAddressCheckbox');
+            const addressFields = document.getElementById('addressFields');
+        
+            addAddressCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                addressFields.style.display = 'block';
+            } else {
+                addressFields.style.display = 'none';
+            }
+            });
+            
+            // Function to generate a random post number
+            function generatePostNumber() {
+                return Math.floor(Math.random() * 1000) + 1; // Adjust range as needed
+            }
+
+            function setLabelPosition(position) {
+                document.getElementById('label-position').value = position;
+            }
+            
             $(document).ready(function() {
                 // API 호출
                 $.ajax({
@@ -85,6 +157,7 @@
                     }
                 });
             });
+            
         </script>
         <script src="js/handlebars.test.js"></script>
     </body>

@@ -1,5 +1,76 @@
 @import url("reset.css");
 
 body {
-    font-size: 20px
+    font-family: Arial, sans-serif;
+}
+.menu {
+    display: flex;
+    background-color: #333;
+    margin-bottom: 20px; /* Added */
+}
+.menu > li {
+    list-style: none;
+    position: relative;
+}
+.menu > li > a {
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.menu > li:hover > a {
+    background-color: #575757;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+}
+.submenu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.submenu a:hover {
+    background-color: #575757;
+}
+.menu > li:hover .submenu {
+    display: block;
+}
+.form-container {
+    margin-top: 20px;
+    margin-left: 20px;
+    max-width: 1000px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.form-container input[type="text"] {
+    width: calc(50% - 10px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: top;
+}
+.form-container .label-position {
+    margin-bottom: 10px;
+}
+
+
+.post-info {
+    position: right;
+}
+
+.table{
+    border: 1px;
 }
