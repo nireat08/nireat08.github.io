@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/lib/bootstrap.min.css">
     </head>
-    <ul class="menu">
+    <!-- <ul class="menu">
         <li><a href="#home">Home</a></li>
         <li><a href="#services">AS</a>
             <ul class="submenu">
@@ -23,8 +23,75 @@
             </ul>
         </li>
         </ul>
-        
-    </ul>
+    </ul> -->
+    <nav class="side-nav">
+        <!-- 좌측 네비게이션 내용 -->
+        <ul>
+            <li><a href="#">메뉴 1</a></li>
+            <li><a href="#">메뉴 2</a></li>
+            <li><a href="#">메뉴 3</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="top-nav-1">
+            <!-- 상단 네비게이션 내용 -->
+            <form onsubmit="showSubmitMessage(); return false;">
+                <label for="name">이름:</label><br>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;"><br>
+                <input type="submit" value="제출">
+              </form>
+        </div>
+    <div class="content">
+        <div class="top-nav-1">
+            <!-- 상단 네비게이션 내용 -->
+            <ul>
+                <li><a href="#">번호</a></li>
+                <li><a href="#">날짜</a></li>
+                <li><a href="#">예약/반송/문의</a></li>
+                <li><a href="#">구입날짜</a></li>
+                <li><a href="#">유상</a></li>
+                <li><a href="#">결제</a></li>
+                <li><a href="#">착불</a></li>
+            </ul>
+        </div>
+    <div class="content">
+        <div class="top-nav-1">
+            <!-- 상단 네비게이션 내용 -->
+            <ul>
+                <li><a href="#">이름</a></li>
+                <li><a href="#">연락처</a></li>
+                <li><a href="#">주소</a></li>
+                <li><a href="#">주행거리</a></li>
+                <li><a href="#">모델</a></li>
+                <li><a href="#">연락처2</a></li>
+            </ul>
+        </div>
+    <div class="content">
+        <div class="top-nav-2">
+            <!-- 상단 네비게이션 내용 -->
+            <ul>
+                <li><a href="#">고장 증상</a></li>
+            </ul>
+        </div>
+    <div class="content">
+        <div class="top-nav-2">
+            <!-- 상단 네비게이션 내용 -->
+            <ul>
+                <li><a href="#">작업히스토리</a></li>
+            </ul>
+        </div>
+    <div class="content">
+        <div class="top-nav-2">
+            <!-- 상단 네비게이션 내용 -->
+            <ul>
+                <li><a href="#">부품사용</a></li>
+            </ul>
+        </div>    
+        <main>
+            <!-- 메인 콘텐츠 -->
+            <h1>환영합니다!</h1>
+            <p>여기는 메인 콘텐츠 영역입니다.</p>
+            
     <body>
         
     <table>
@@ -113,6 +180,18 @@
             </div>
         </script>
         <script>
+            function showSubmitMessage() {
+                var result = confirm("제출되었습니다. 다시 검색하시겠습니까?");
+                if (result) {
+                // Yes 클릭 시 동작
+                // 창을 닫는다
+                window.close();
+                } else {
+                // No 클릭 시 동작
+                // 아무 동작 없음
+                }
+            }
+
             const addAddressCheckbox = document.getElementById('addAddressCheckbox');
             const addressFields = document.getElementById('addressFields');
         
