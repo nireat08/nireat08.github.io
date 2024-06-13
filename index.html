@@ -36,8 +36,8 @@
         <div class="top-nav-1">
             <!-- 상단 네비게이션 내용 -->
             <form onsubmit="showSubmitMessage(); return false;">
-                <label for="name">이름:</label><br>
-                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;"><br>
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
                 <input type="submit" value="제출">
               </form>
         </div>
@@ -47,37 +47,64 @@
             <ul>
                 <li><a href="#">번호</a></li>
                 <li><a href="#">날짜</a></li>
-                <li><a href="#">예약/반송/문의</a></li>
+                <input type="checkbox">
+                <label>예약</label>
+                <input type="checkbox">
+                <label>노예약</label>
+                <input type="checkbox">
+                <label>택배</label>
+                <input type="checkbox">
+                <label>용달</label>
                 <li><a href="#">구입날짜</a></li>
-                <li><a href="#">유상</a></li>
+                
                 <li><a href="#">결제</a></li>
-                <li><a href="#">착불</a></li>
+                <input type="checkbox">
+                <label>무상</label>
+                <input type="checkbox">
+                <label>유상</label>
             </ul>
         </div>
     <div class="content">
-        <div class="top-nav-1">
+        <div class="top-nav-3">
             <!-- 상단 네비게이션 내용 -->
-            <ul>
-                <li><a href="#">이름</a></li>
-                <li><a href="#">연락처</a></li>
-                <li><a href="#">주소</a></li>
-                <li><a href="#">주행거리</a></li>
-                <li><a href="#">모델</a></li>
-                <li><a href="#">연락처2</a></li>
+            <ul class="ul-1">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
+                <label for="name">연락처:</label>
+                <input type="number" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
+                <label for="name">주소:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
+                <label for="name">주행거리:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
+                <label for="name">모델:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
+                <label for="number">연락처2:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
             </ul>
         </div>
     <div class="content">
         <div class="top-nav-2">
             <!-- 상단 네비게이션 내용 -->
             <ul>
-                <li><a href="#">고장 증상</a></li>
+                <label for="number">고장증상</label>
+                <input type="text" id="name" name="name" placeholder="고객이 주장하는 고장 증상을 상세히 적으시오." style="opacity: 0.7;">
             </ul>
         </div>
     <div class="content">
         <div class="top-nav-2">
             <!-- 상단 네비게이션 내용 -->
             <ul>
-                <li><a href="#">작업히스토리</a></li>
+                <label for="number">고장증상</label>
+                
+                <div class="vertical-buttons">
+                    <button onclick="selectButton('No. 1', this, 0)">No. 1</button>
+                    <button onclick="selectButton('No. 2', this, 1)">No. 2</button>
+                    <button onclick="selectButton('No. 3', this, 2)">No. 3</button>
+                </div>
+                <input type="text" id="inputField" placeholder="내용을 입력하세요" onkeypress="handleKeyPress(event)">
+                <button onclick="addContent()">입력</button>
+                
+                <div id="displayArea"></div>
             </ul>
         </div>
     <div class="content">
@@ -180,6 +207,68 @@
             </div>
         </script>
         <script>
+            let selectedButtonNumber = '';
+            let selectedButtonColor = '';
+
+            function selectButton(buttonNumber, buttonElement, idx) {
+                // 모든 버튼의 선택 클래스 제거
+                const buttons = document.querySelectorAll('.vertical-buttons button');
+                buttons.forEach((button, i) => button.classList.remove('selected'+i));
+                
+                // 선택된 버튼에 선택 클래스 추가
+                buttonElement.classList.add('selected' +idx);
+                selectedButtonNumber = buttonNumber;
+                selectedButtonColor = window.getComputedStyle(buttonElement).backgroundColor;
+            }
+
+            function addContent() {
+                if (selectedButtonNumber === '') {
+                    alert('먼저 번호 버튼을 선택하세요.');
+                    return;
+                }
+
+                const inputField = document.getElementById('inputField');
+                const content = inputField.value;
+                const displayArea = document.getElementById('displayArea');
+                const newContent = document.createElement('div');
+                const newContent1 = document.createElement('span');
+                const newContent2 = document.createElement('span');
+                const newContent3 = document.createElement('span');
+
+                newContent1.textContent = `${selectedButtonNumber}:`
+                newContent2.textContent = `${content}`;
+                newContent3.textContent = getCurrentDateTime();
+                
+                newContent1.style.color = selectedButtonColor; // 텍스트 색상 변경
+                newContent2.style.color = '#000'; // 텍스트 색상 변경
+                
+                newContent.appendChild(newContent3);
+                newContent.appendChild(newContent1);
+                newContent.appendChild(newContent2);
+                displayArea.appendChild(newContent);
+
+                inputField.value = ''; // 입력 필드 초기화
+                selectedButtonNumber = ''; // 선택된 버튼 번호 초기화
+
+                // 모든 버튼의 선택 클래스 제거
+                const buttons = document.querySelectorAll('.vertical-buttons button');
+                buttons.forEach((button, i) => button.classList.remove('selected'+i));
+            }
+
+            function handleKeyPress(event) {
+                if (event.key === 'Enter') {
+                    addContent();
+                }
+            }
+
+            function getCurrentDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString('ko-KR');
+            const time = now.toLocaleTimeString('ko-KR');
+            return `${date} ${time}`;
+            }
+           
+
             function showSubmitMessage() {
                 var result = confirm("제출되었습니다. 다시 검색하시겠습니까?");
                 if (result) {
