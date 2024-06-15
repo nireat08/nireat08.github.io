@@ -1,5 +1,48 @@
 @import url("reset.css");
 
+.default-button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.selected-button {
+    background-color: green;
+}
+
+
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.clicked {
+    background-color: rgb(107, 251, 124);
+}
+
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction:column;
+}
+
+table td{
+    border: 1px solid black;
+
+}
+
+td {
+    style="border: 1px solid black;"
+}
+
+
+
+
 /* 숫자 입력시 버튼 없애기 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -54,7 +97,7 @@ body {
     border-bottom: 2px solid black;
     display: flex;
     align-items: center;
-}
+    }
 .top-nav-1 ul {
     list-style: none;
     padding: 0;
@@ -105,11 +148,7 @@ body {
     display: flex;
     align-items: center;
 }
-.content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction:column;
-}
+
 main {
     flex-grow: 1;
     padding: 20px;

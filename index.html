@@ -27,13 +27,13 @@
     <nav class="side-nav">
         <!-- 좌측 네비게이션 내용 -->
         <ul>
-            <li><a href="#">메뉴 1</a></li>
-            <li><a href="#">메뉴 2</a></li>
-            <li><a href="#">메뉴 3</a></li>
+            <li><a href="#">진행중</a></li>
+            <li><a href="#">완료</a></li>
+            <li><a href="#">짜잔</a></li>
         </ul>
     </nav>
     <div class="content">
-        <div class="top-nav-1">
+        <div>
             <!-- 상단 네비게이션 내용 -->
             <form onsubmit="showSubmitMessage(); return false;">
                 <label for="name">이름:</label>
@@ -41,53 +41,120 @@
                 <input type="submit" value="제출">
               </form>
         </div>
-    <div class="content">
-        <div class="top-nav-1">
-            <!-- 상단 네비게이션 내용 -->
-            <ul>
-                <li><a href="#">번호</a></li>
-                <li><a href="#">날짜</a></li>
+    <table>
+        <th>접수번호</th>
+        <th>접수날짜</th>
+        <th>
+             
+        </th>
+        <!--<td>처리현황</td>
+        <td><button type="button" id="yes-button" class="default-button">진행중</button>
+            <button type="button" id="no-button" class="default-button">완료</button>
+  
+        <label for="reservation-check">예약</label>
+        <input type="checkbox" id="reservation-check">
+        <td class="box" id="colorBox">
+        <label class="box" id="clo">노예약</label>-->
+        </td>
+        <tr>
+            <td>
+                접수방법
+            </td>
+            <td>
+                <select name="delivery-method">
+                    <option value="" disabled selected>접수 방법 선택</option>
+                    <option value="예약방문">예약방문</option>
+                    <option value="방문">방문</option>
+                    <option disabled >-----</option>
+                    <option value="영업 외 시간 놓고 감">영업 외 시간 놓고 감</option>
+                    <option value="맡기고 감">맡기고 감</option>
+                    <option disabled >-----</option>
+                    <option value="퀵 서비스">퀵 서비스</option>
+                    <option value="택배">택배</option>
+                </select>
+
+            <td>
+                AS처리 후<br>
+                 수령 방법
+            </td>
+            <td>
+                <select name="delivery-method">
+                    <option value="" disabled selected>수령 방법 선택</option>
+                    <option value="전화 주면 방문">전화 주면 방문</option>
+                    <option value="기다림">기다림</option>
+                    <option disabled >-----</option>
+                    <option value="영업 외 시간 놓고 감">영업 외 시간 놓고 감</option>
+                    <option value="맡기고 감">맡기고 감</option>
+                    <option disabled >-----</option>
+                    <option value="퀵 서비스">퀵 서비스</option>
+                    <option value="택배">택배</option>
+                </select>
+            </td>
+        </tr>
+            <td>
+                결제금액
+            </td>
+            <td>
+                10000원
+            </td>
+            <td>
+                결제방법
+            </td>
+            <td>
+                <select name="delivery-method">
+                    <option value="" disabled selected>결제방법선택</option>
+                    <option value="카드">카드</option>
+                    <option value="현금">현금</option>
+                </select>
+
+
+                <label for="free-pay">무상</label>
+                <input type="checkbox" id="free-pay">
+                <div id="free" style="display: none;">
+                    <input type="text" placeholder="날짜입력" required>
+                </div>
+
+                <label for="pay-check">유상</label>
+                <input type="checkbox" id="pay-check">
+                <div id="free" style="display: none;">
+                    <input type="text" placeholder="날짜입력" required>
+                </div>
+
+                <label>할인</label>
                 <input type="checkbox">
-                <label>예약</label>
-                <input type="checkbox">
-                <label>노예약</label>
-                <input type="checkbox">
-                <label>택배</label>
-                <input type="checkbox">
-                <label>용달</label>
-                <li><a href="#">구입날짜</a></li>
                 
-                <li><a href="#">결제</a></li>
-                <input type="checkbox">
-                <label>무상</label>
-                <input type="checkbox">
-                <label>유상</label>
-            </ul>
-        </div>
-    <div class="content">
-        <div class="top-nav-3">
-            <!-- 상단 네비게이션 내용 -->
-            <ul class="ul-1">
-                <label for="name">이름:</label>
-                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
-                <label for="name">연락처:</label>
-                <input type="number" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
-                <label for="name">주소:</label>
-                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
-                <label for="name">주행거리:</label>
-                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
-                <label for="name">모델:</label>
-                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
-                <label for="number">연락처2:</label>
-                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
-            </ul>
-        </div>
+                
+                <label for="Partialpay-check">부분유료</label>
+                <input type="checkbox" id="Partialpay-check">
+                <div class="addressFields" style="display: none;">
+                <input type="number" placeholder="금액입력" required>
+            </td>
+      
+    </table>    
+    
+    <table>
+        <th>
+            <form>
+                <label for="name">모델 입력</label>
+                <input type="text" id="name" name="name" placeholder="모델" required>
+                <input type="text" id="name" name="name" placeholder="주행거리" required>
+                <input type="text" id="name" name="name" placeholder="이름" required>
+                <input type="text" id="name" name="name" placeholder="구입처" required>
+            </form>
+        </th>
+        <tr>
+            <td>
+                <input type="text" id="name" name="name" placeholder="연락처" required>
+                <input type="text" id="name" name="name" placeholder="주소" required>
+            </td>
+        </tr>
+    </table>
     <div class="content">
         <div class="top-nav-2">
             <!-- 상단 네비게이션 내용 -->
             <ul>
                 <label for="number">고장증상</label>
-                <input type="text" id="name" name="name" placeholder="고객이 주장하는 고장 증상을 상세히 적으시오." style="opacity: 0.7;">
+                <input type="text" id="name" name="name" placeholder="고객이 주장하는 고장 증상을 상세히 적으시오." style="opacity: 0.7; width: 300px;">
             </ul>
         </div>
     <div class="content">
@@ -114,14 +181,10 @@
                 <li><a href="#">부품사용</a></li>
             </ul>
         </div>    
-        <main>
-            <!-- 메인 콘텐츠 -->
-            <h1>환영합니다!</h1>
-            <p>여기는 메인 콘텐츠 영역입니다.</p>
-            
+                  
     <body>
         
-    <table>
+    <!-- <table>
         <div class="form-container">
             <h2>퀄리스포츠 AS 현황 안내</h2>
             <form>
@@ -129,7 +192,7 @@
                 <input type="text" id="contact" name="contact" placeholder="연락처" required>
                 <input type="text" id="mileage" name="mileage" placeholder="주행거리" required>
                 <input type="text" id="model" name="model" placeholder="모델" required>
-                <!-- Address Section Toggle -->
+                <-- Address Section Toggle --
                 <input type="checkbox" id="addAddressCheckbox">
                 <label for="addAddressCheckbox">주소입력</label>
                 <div id="addressFields" style="display: none;">
@@ -138,20 +201,16 @@
                 <label for="longContent">Enter Long Content:</label>
                 <textarea id="longContent" name="longContent" rows="4" cols="50"></textarea>
                 
-                <!-- Submit Button -->
+                !-- Submit Button --
                 <input type="submit" value="Submit">                                    
                 
             </form>
             
-        </div>
+        </div> 
 
         
-    </table>    
+    </table>  -->  
     
-    <span>
-        <input type="text" id="name2" name="name2" placeholder="이름2" required>
-
-    </span>
 
         <!-- <a href="/html/list.html">test list</a>
          다른 페이지 링크 걸기
@@ -162,51 +221,66 @@
         <script src="js/lib/handlebars.min.js"></script>
         <script src="js/lib/bootstrap.min.js"></script>
         <script id="entry-template" type="text/x-handlebars-template">
-            <div class="mt-5" style="font-size: 9px; margin: 50px;">
-                
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th>번호</th>
-                            <th>예약, 반송, 문의</th>
-                            <th>담당</th>
-                            <th>물품명</th>
-                            <th>결제방식</th>
-                            <th>결제금액</th>
-                            <th>확인된<br>구입일자</th>
-                            <th>고장시 고객 주장(택배)<br>고장시 업체 주장(전화, 택배)</th>
-                            <th>고장내용<br>선발송 사유</th>
-                            <th>작업 히스토리<br>(수리자 이름등록)</th>
-                            <th>유상처리 목록</th>
-                            <th>비고(부품증가분)</th>
-                            <th>result</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {{#each data}}
-                        <tr>
-                            <th scope="row">{{id}}</th>
-                            <th>{{status}}</th>
-                            <th>{{manager}}</th>
-                            <th>{{item_name}}</th>
-                            <th>{{payment_method}}</th>
-                            <th>{{payment_amount}}</th>
-                            <th>{{purchase_date}}</th>
-                            <th>{{memo}}</th>
-                            <th>{{fault_detail}}</th>
-                            <th>{{history}}</th>
-                            <th>{{payment_list}}</th>
-                            <th>{{remark}}</th>
-                            <th>{{result}}</th>
-                        </tr>
-                        {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            
+        </div>
         </script>
         <script>
+            //버튼 Y, N 설정
+            const yesButton = document.getElementById('yes-button');
+            const noButton = document.getElementById('no-button');
+
+            let selectedButton = null; // 선택된 버튼을 추적하기 위한 변수
+
+            yesButton.addEventListener('click', function() {
+                if (selectedButton === 'yes') {
+                    // 이미 선택된 Y 버튼을 다시 누르면 선택 취소
+                    selectedButton = null;
+                    yesButton.classList.remove('selected-button');
+                } else if (selectedButton === 'no') {
+                    // 다른 버튼이 선택된 상태에서 Y 버튼을 누르면 경고 표시
+                    showWarning();
+                } else {
+                    // 기본 상태에서 Y 버튼을 누르면 선택 처리
+                    selectedButton = 'yes';
+                    yesButton.classList.add('selected-button');
+                    noButton.classList.remove('selected-button');
+                }
+            });
+
+            noButton.addEventListener('click', function() {
+                if (selectedButton === 'no') {
+                    // 이미 선택된 N 버튼을 다시 누르면 선택 취소
+                    selectedButton = null;
+                    noButton.classList.remove('selected-button');
+                } else if (selectedButton === 'yes') {
+                    // 다른 버튼이 선택된 상태에서 N 버튼을 누르면 경고 표시
+                    showWarning();
+                } else {
+                    // 기본 상태에서 N 버튼을 누르면 선택 처리
+                    selectedButton = 'no';
+                    noButton.classList.add('selected-button');
+                    yesButton.classList.remove('selected-button');
+                }
+            });
+
+            function showWarning() {
+                alert('Warning: 하나의 버튼만 선택 가능합니다.');
+                if (result) {
+                // Yes 클릭 시 동작
+                // 창을 닫는다
+                selectedButton = null;
+                } else {
+                // No 클릭 시 동작
+                // 아무 동작 없음
+                }
+            }    
+
+            //컬러박스
+            document.getElementById('colorBox').addEventListener('click', function() {
+            this.classList.toggle('clicked');
+            });    
+
+
             let selectedButtonNumber = '';
             let selectedButtonColor = '';
 
@@ -280,17 +354,30 @@
                 // 아무 동작 없음
                 }
             }
+            //착불 체크 박스 선택시 금액입력칸    
+            const addRecipientPay = document.getElementById('recipient-pay');
+            const addRecipient = document.getElementById('recipient');
 
-            const addAddressCheckbox = document.getElementById('addAddressCheckbox');
-            const addressFields = document.getElementById('addressFields');
-        
-            addAddressCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                addressFields.style.display = 'block';
-            } else {
-                addressFields.style.display = 'none';
-            }
+            addRecipientPay.addEventListener('change', function() {
+                if (this.checked) {
+                    addRecipient.style.display = 'block';
+                } else {
+                    addRecipient.style.display = 'none';
+                }
             });
+
+            //무상 체크 박스 선택시 날짜입력칸
+            const addfreePay = document.getElementById('free-pay');
+            const addfree = document.getElementById('free');
+
+            addfreePay.addEventListener('change', function() {
+                if (this.checked) {
+                    addfree.style.display = 'block';
+                } else {
+                    addfree.style.display = 'none';
+                }
+            });
+           
             
             // Function to generate a random post number
             function generatePostNumber() {
@@ -326,6 +413,37 @@
                 });
             });
             
+
+                // 모델 리스트 (실제로는 데이터베이스나 API에서 가져오는 것이 일반적)
+                const models = [
+                    "모델1",
+                    "모델2",
+                    "모델3",
+                    "모델4",
+                    // 필요한 만큼 추가
+                ];
+
+                // 입력 창과 관련된 JavaScript 코드
+                window.onload = function() {
+                    const input = document.getElementById('name');
+
+                    // 입력이 바뀔 때마다 자동 완성 기능 실행
+                    input.addEventListener('input', function() {
+                        const searchText = input.value.trim(); // 입력된 텍스트
+
+                        // 모델 리스트에서 정확히 일치하는 모델 찾기
+                        const suggestion = models.find(function(model) {
+                            return model === searchText;
+                        });
+
+                        // 정확히 일치하는 모델이 있다면 제안
+                        if (suggestion) {
+                            alert('관련 검색어: ' + suggestion);
+                        } else {
+                            alert('일치하는 모델이 없습니다.');
+                        }
+                    });
+                };
         </script>
         <script src="js/handlebars.test.js"></script>
     </body>
