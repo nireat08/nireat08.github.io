@@ -95,19 +95,12 @@
                 결제금액
             </td>
             <td>
-                10000원
+                원
             </td>
             <td>
                 결제방법
             </td>
             <td>
-                <select name="delivery-method">
-                    <option value="" disabled selected>결제방법선택</option>
-                    <option value="카드">카드</option>
-                    <option value="현금">현금</option>
-                </select>
-
-
                 <label for="free-pay">무상</label>
                 <input type="checkbox" id="free-pay">
                 <div id="free" style="display: none;">
@@ -119,21 +112,22 @@
                 <div id="free" style="display: none;">
                     <input type="text" placeholder="날짜입력" required>
                 </div>
+    
+                <select name="delivery-method">
+                    <option value="" disabled selected>결제방법선택</option>
+                    <option value="카드">카드</option>
+                    <option value="현금">현금</option>
+                </select>
 
                 <label>할인</label>
                 <input type="checkbox">
-                
-                
-                <label for="Partialpay-check">부분유료</label>
-                <input type="checkbox" id="Partialpay-check">
-                <div class="addressFields" style="display: none;">
-                <input type="number" placeholder="금액입력" required>
+             
             </td>
       
     </table>    
     
     <table>
-        <th>
+        <td>
             <form>
                 <label for="name">모델 입력</label>
                 <input type="text" id="name" name="name" placeholder="모델" required>
@@ -141,7 +135,7 @@
                 <input type="text" id="name" name="name" placeholder="이름" required>
                 <input type="text" id="name" name="name" placeholder="구입처" required>
             </form>
-        </th>
+        </td>
         <tr>
             <td>
                 <input type="text" id="name" name="name" placeholder="연락처" required>
@@ -149,14 +143,23 @@
             </td>
         </tr>
     </table>
-    <div class="content">
-        <div class="top-nav-2">
-            <!-- 상단 네비게이션 내용 -->
-            <ul>
-                <label for="number">고장증상</label>
-                <input type="text" id="name" name="name" placeholder="고객이 주장하는 고장 증상을 상세히 적으시오." style="opacity: 0.7; width: 300px;">
-            </ul>
-        </div>
+    <table>
+        <th>
+            <td>
+                <label>고장증상</label>
+            </td>
+            <td>
+
+            </td>
+            
+
+
+        </th>
+        
+                    
+       
+            </div>
+    </table>
     <div class="content">
         <div class="top-nav-2">
             <!-- 상단 네비게이션 내용 -->
