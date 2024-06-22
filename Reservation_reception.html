@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/lib/bootstrap.min.css">
-        <Title>AS 차트</Title>
+        <Title>예약 접수</Title>
     </head>
     <body>
         <header>header
@@ -39,7 +39,8 @@
                 </div>
                 <div>
                     <button>임시저장</button>
-                    <button>저장</button>                
+                    <button>저장</button>
+                    <button>예약하기</button>                
                 </div>
             <div class="box">
                 접수방법
@@ -109,20 +110,7 @@
                 <input type="text" id="symptom" name="symptom" placeholder="고장증상입력" required class="wide3">
                 <button onclick="addContent()">입력</button>
                 <div id="displayArea"></div>
-            </div>
-            <div>
-                <label>점검 과정</label>
-                <div class="horizonal-buttons">
-                    <button onclick="selectButton('No. 1', this, 0)">해솔</button>
-                    <button onclick="selectButton('No. 2', this, 1)">태린</button>
-                    <button onclick="selectButton('No. 3', this, 2)">원욱</button>
-                    <button onclick="selectButton('No. 1', this, 3)">완희</button>
-                    <button onclick="selectButton('No. 2', this, 4)">본석</button>
-                    <button onclick="selectButton('No. 3', this, 5)">민기</button>
-                </div>
-                <input type="text" id="inputField" placeholder="내용을 입력하세요" onkeypress="handleKeyPress(event)" required class="wide3">
-                <button onclick="addContent()">입력</button>
-                <div id="displayArea"></div>
+                
             </div>
             <div>
                 결제하실 금액 : 
@@ -143,7 +131,8 @@
                     영수증 날짜: <input type="date" name="receipt-date">
                 </select>
             </div>
-        </div>
+            </div>
+            </div>
                                 
         </main>
         <footer>퇴근전 [           ] 꺼내놓기</footer> 

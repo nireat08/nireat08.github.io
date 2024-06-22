@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+    <html> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+        <Title>메인페이지</Title>
+    </head>
+    <body>
+        <header>header
+            <button><a href="main.html">처음으로</a></button>
+            <button><a href="index.html">임시버튼</a></button>
+            <form onsubmit="showSubmitMessage(); return false;">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
+                <input type="submit" value="제출">
+            </form>
+        </header>
+        <aside>
+            <ol>AS
+                <li><a href="Repair_in_progress_list.html">진행중</a></li>
+                <li><a href="complete.html">완료</a></li>
+                <li><a href="Reservation_reception.html">예약접수</a></li>
+            </ol>
+            <ul>
+                <li><a href="#">부품사용</a></li>
+                <li><a href="#">선발송</a></li>
+                <li><a href="#">제공</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>오늘의 예약(날짜)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>시간</th>
+                        <th>모델</th>
+                        <th>증상</th>
+                        <th>예약자 이름</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>번호</th>
+                        <td>10:00</td>
+                        <td>ABC-1234</td>
+                        <td>배터리 문제</td>
+                        <td>홍 길 동</td>
+                    </tr>
+                    <tr>
+                        <th>번호</th>
+                        <td>11:00</td>
+                        <td>XYZ-5678</td>
+                        <td>화면 깨짐</td>
+                        <td>김 철 수</td>
+                    </tr>
+                    <tr>
+                        <th>번호</th>
+                        <td>14:00</td>
+                        <td>LMN-9101</td>
+                        <td>소리 문제</td>
+                        <td>이 영 희</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div class="statistics">
+                <h2>통계</h2>
+                <p>진행 중인 작업 수: 5</p>
+                <p>완료된 작업 수: 12</p>
+                <p>해야 할 작업 수: 3</p>
+                <p>주간 처리된 AS 수: 10</p>
+                <p>진행 중에서 완료까지 걸린 일수: 평균 3일</p>
+            </div>
+            
+        </main>
+        <footer>퇴근전 [           ] 꺼내놓기</footer> 
+    
+    </body> 
