@@ -1,233 +1,184 @@
 <!DOCTYPE html> 
     <html> 
     <head>
-        <Title>Node Express</Title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+        <Title>AS 차트</Title>
     </head>
-    <!-- <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">AS</a>
-            <ul class="submenu">
-                <li><a href="#web-development">방문</a></li>
-                <li><a href="#app-development">택배</a></li>
-                <li><a href="#seo-development">용달</a></li>
-            </ul>
-        </li>
-        <li><a href="#services">Parts</a>
-            <ul class="submenu">
-                <li><a href="#web-development">선발송</a></li>
-                <li><a href="#app-development">증가</a></li>
-                <li><a href="#seo-development">감소</a></li>
-            </ul>
-        </li>
-        </ul>
-    </ul> -->
-    <nav class="side-nav">
-        <!-- 좌측 네비게이션 내용 -->
-        <ul>
-            <li><a href="#">진행중</a></li>
-            <li><a href="#">완료</a></li>
-            <li><a href="#">짜잔</a></li>
-        </ul>
-    </nav>
-    <div class="content">
-        <div>
-            <!-- 상단 네비게이션 내용 -->
+    <body>
+        <header>header
             <form onsubmit="showSubmitMessage(); return false;">
                 <label for="name">이름:</label>
                 <input type="text" id="name" name="name" placeholder="검색" style="opacity: 0.7;">
                 <input type="submit" value="제출">
-              </form>
-        </div>
-    <table>
-        <th>접수번호</th>
-        <th>접수날짜</th>
-        <th>
-             
-        </th>
-        <!--<td>처리현황</td>
-        <td><button type="button" id="yes-button" class="default-button">진행중</button>
-            <button type="button" id="no-button" class="default-button">완료</button>
-  
-        <label for="reservation-check">예약</label>
-        <input type="checkbox" id="reservation-check">
-        <td class="box" id="colorBox">
-        <label class="box" id="clo">노예약</label>-->
-        </td>
-        <tr>
-            <td>
+            </form>
+        </header>
+        <aside>
+            <ol>AS
+                <li><a href="index2.html">진행중</a></li>
+                <li><a href="#">완료</a></li>
+                <li><a href="#">짜잔</a></li>
+            </ol>
+            <ul>
+                <li><a href="#">부품사용</a></li>
+                <li><a href="#">선발송</a></li>
+                <li><a href="#">제공</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div class="box">
+                <div >
+                    접수번호 :
+                </div>
+                <div>
+                    접수날짜
+                </div>
+                <div>
+                    <button>임시저장</button>
+                    <button>저장</button>                
+                </div>
+            <div class="box">
                 접수방법
-            </td>
-            <td>
+            </div>
+            <div class="box">
                 <select name="delivery-method">
                     <option value="" disabled selected>접수 방법 선택</option>
                     <option value="예약방문">예약방문</option>
                     <option value="방문">방문</option>
                     <option disabled >-----</option>
                     <option value="영업 외 시간 놓고 감">영업 외 시간 놓고 감</option>
-                    <option value="맡기고 감">맡기고 감</option>
+                    <option value="맡기고 감">예약 후 맡기고 감</option>
                     <option disabled >-----</option>
                     <option value="퀵 서비스">퀵 서비스</option>
                     <option value="택배">택배</option>
                 </select>
-
-            <td>
-                AS처리 후<br>
-                 수령 방법
-            </td>
-            <td>
+            </div>
+            <div>
                 <select name="delivery-method">
-                    <option value="" disabled selected>수령 방법 선택</option>
+                    <option value="" disabled selected>AS 후 수령 방법 선택</option>
                     <option value="전화 주면 방문">전화 주면 방문</option>
                     <option value="기다림">기다림</option>
                     <option disabled >-----</option>
-                    <option value="영업 외 시간 놓고 감">영업 외 시간 놓고 감</option>
+                    <option value="영업 외 시간 놓고 감">영업 외 시간 찾아 감</option>
                     <option value="맡기고 감">맡기고 감</option>
                     <option disabled >-----</option>
                     <option value="퀵 서비스">퀵 서비스</option>
                     <option value="택배">택배</option>
                 </select>
-            </td>
-        </tr>
-            <td>
-                결제금액
-            </td>
-            <td>
-                원
-            </td>
-            <td>
-                결제방법
-            </td>
-            <td>
-                <label for="free-pay">무상</label>
-                <input type="checkbox" id="free-pay">
-                <div id="free" style="display: none;">
-                    <input type="text" placeholder="날짜입력" required>
-                </div>
-
-                <label for="pay-check">유상</label>
-                <input type="checkbox" id="pay-check">
-                <div id="free" style="display: none;">
-                    <input type="text" placeholder="날짜입력" required>
-                </div>
-    
-                <select name="delivery-method">
-                    <option value="" disabled selected>결제방법선택</option>
-                    <option value="카드">카드</option>
-                    <option value="현금">현금</option>
-                </select>
-
-                <label>할인</label>
-                <input type="checkbox">
-             
-            </td>
-      
-    </table>    
-    
-    <table>
-        <td>
-            <form>
-                <label for="name">모델 입력</label>
-                <input type="text" id="name" name="name" placeholder="모델" required>
-                <input type="text" id="name" name="name" placeholder="주행거리" required>
-                <input type="text" id="name" name="name" placeholder="이름" required>
-                <input type="text" id="name" name="name" placeholder="구입처" required>
-            </form>
-        </td>
-        <tr>
-            <td>
-                <input type="text" id="name" name="name" placeholder="연락처" required>
-                <input type="text" id="name" name="name" placeholder="주소" required>
-            </td>
-        </tr>
-    </table>
-    <table>
-        <th>
-            <td>
-                <label>고장증상</label>
-            </td>
-            <td>
-
-            </td>
-            
-
-
-        </th>
-        
-                    
-       
             </div>
-    </table>
-    <div class="content">
-        <div class="top-nav-2">
-            <!-- 상단 네비게이션 내용 -->
-            <ul>
-                <label for="number">고장증상</label>
-                
-                <div class="vertical-buttons">
-                    <button onclick="selectButton('No. 1', this, 0)">No. 1</button>
-                    <button onclick="selectButton('No. 2', this, 1)">No. 2</button>
-                    <button onclick="selectButton('No. 3', this, 2)">No. 3</button>
+            <div>
+                결제하실 금액 : 
+                <input type="number" name="payment" value="결제금액" >
+            </div>
+            <div>
+                <input type="radio" name="pay" value="무상" onclick="toggleFields()">무상
+                <input type="radio" name="pay" value="유상" onclick="toggleFields()">유상
+                <input type="radio" name="pay" value="부분유상" onclick="toggleFields()">부분유상
+                <div id="payment-method" class="hidden">
+                    <select name="delivery-method">
+                        <option value="" disabled selected>결제방법선택</option>
+                        <option value="카드">카드</option>
+                        <option value="현금">현금</option>
+                    </select>
                 </div>
-                <input type="text" id="inputField" placeholder="내용을 입력하세요" onkeypress="handleKeyPress(event)">
-                <button onclick="addContent()">입력</button>
-                
-                <div id="displayArea"></div>
-            </ul>
-        </div>
-    <div class="content">
-        <div class="top-nav-2">
-            <!-- 상단 네비게이션 내용 -->
-            <ul>
-                <li><a href="#">부품사용</a></li>
-            </ul>
-        </div>    
-                  
-    <body>
-        
-    <!-- <table>
-        <div class="form-container">
-            <h2>퀄리스포츠 AS 현황 안내</h2>
-            <form>
-                <input type="text" id="name" name="name" placeholder="이름" required>
-                <input type="text" id="contact" name="contact" placeholder="연락처" required>
-                <input type="text" id="mileage" name="mileage" placeholder="주행거리" required>
+                <div id="receipt-date" class="hidden">
+                    영수증 날짜: <input type="date" name="receipt-date">
+                </select>
+            </div>
+            <div>
                 <input type="text" id="model" name="model" placeholder="모델" required>
-                <-- Address Section Toggle --
-                <input type="checkbox" id="addAddressCheckbox">
-                <label for="addAddressCheckbox">주소입력</label>
-                <div id="addressFields" style="display: none;">
-                <input type="text" id="street" name="street"placeholder="주소" required>
-                    
-                <label for="longContent">Enter Long Content:</label>
-                <textarea id="longContent" name="longContent" rows="4" cols="50"></textarea>
-                
-                !-- Submit Button --
-                <input type="submit" value="Submit">                                    
-                
-            </form>
-            
-        </div> 
-
-        
-    </table>  -->  
-    
-
-        <!-- <a href="/html/list.html">test list</a>
-         다른 페이지 링크 걸기
-        <a href="/html/list2.html">test2 list</a> -->
+                <input type="text" id="distance" name="distance" placeholder="주행거리" required oninput="appendKm()">
+                <input type="text" id="store" name="store" placeholder="구입처" required><br>
+                <input type="text" id="name1" name="name" placeholder="이름" required>
+                <input type="tel" id="contact" name="contact" placeholder="연락처" required><br>
+                <input type="text" id="address" name="address" placeholder="주소" required class="wide">
+            </div>
+            <div>
+                <label>고장 증상</label><br>
+                <input type="text" id="symptom" name="symptom" placeholder="고장증상입력" required class="wide3">
+                <button onclick="addContent()">입력</button>
+                <div id="displayArea"></div>
+            </div>
+            <div>
+                <label>점검 과정</label>
+                <div class="horizonal-buttons">
+                    <button onclick="selectButton('No. 1', this, 0)">해솔</button>
+                    <button onclick="selectButton('No. 2', this, 1)">태린</button>
+                    <button onclick="selectButton('No. 3', this, 2)">원욱</button>
+                    <button onclick="selectButton('No. 1', this, 3)">완희</button>
+                    <button onclick="selectButton('No. 2', this, 4)">본석</button>
+                    <button onclick="selectButton('No. 3', this, 5)">민기</button>
+                </div>
+                <input type="text" id="inputField" placeholder="내용을 입력하세요" onkeypress="handleKeyPress(event)" required class="wide3">
+                <button onclick="addContent()">입력</button>
+                <div id="displayArea"></div>
+            </div>
+            </div>
+                                
+        </main>
+        <footer>퇴근전 [           ] 꺼내놓기</footer> 
+    </body>
+  
               
-        <div id="content"></div>
-        <script src="js/lib/jquery-3.2.1.min.js"></script>
-        <script src="js/lib/handlebars.min.js"></script>
-        <script src="js/lib/bootstrap.min.js"></script>
-        <script id="entry-template" type="text/x-handlebars-template">
-            
-        </div>
-        </script>
+    <div id="content"></div>
+    <script src="js/lib/jquery-3.2.1.min.js"></script>
+    <script src="js/lib/handlebars.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script id="entry-template" type="text/x-handlebars-template">
+    </div>
+    </script>
         <script>
+            function appendKm() {
+                var distanceInput = document.getElementById('distance');
+                var value = distanceInput.value;
+                var kmSuffix = " km";
+
+                // 숫자만 남기고 나머지는 제거
+                var numericValue = value.replace(/\D/g, '');
+
+                // 입력 값이 있을 때만 'km'를 추가
+                if (numericValue.length > 0) {
+                    distanceInput.value = numericValue + kmSuffix;
+                } else {
+                    distanceInput.value = "";
+                }
+            }
+
+            // 무상, 유상, 부분유상 토클 위치에 따른 보이는 메뉴 다르게 하기
+            function toggleFields() {
+                var radios = document.getElementsByName('pay');
+                var paymentMethod = document.getElementById('payment-method');
+                var receiptDate = document.getElementById('receipt-date');
+                var showPaymentSelect = false;
+                var showReceiptDate = false;
+
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        if (radios[i].value === '유상' || radios[i].value === '부분유상') {
+                            showPaymentSelect = true;
+                        } else if (radios[i].value === '무상') {
+                            showReceiptDate = true;
+                        }
+                    }
+                }
+
+                if (showPaymentSelect) {
+                    paymentMethod.classList.remove('hidden');
+                } else {
+                    paymentMethod.classList.add('hidden');
+                }
+
+                if (showReceiptDate) {
+                    receiptDate.classList.remove('hidden');
+                } else {
+                    receiptDate.classList.add('hidden');
+                }
+            }
+
+
+
             //버튼 Y, N 설정
             const yesButton = document.getElementById('yes-button');
             const noButton = document.getElementById('no-button');
@@ -280,20 +231,19 @@
 
             //컬러박스
             document.getElementById('colorBox').addEventListener('click', function() {
-            this.classList.toggle('clicked');
-            });    
-
+                this.classList.toggle('clicked');
+            });
 
             let selectedButtonNumber = '';
             let selectedButtonColor = '';
 
             function selectButton(buttonNumber, buttonElement, idx) {
                 // 모든 버튼의 선택 클래스 제거
-                const buttons = document.querySelectorAll('.vertical-buttons button');
-                buttons.forEach((button, i) => button.classList.remove('selected'+i));
-                
+                const buttons = document.querySelectorAll('.horizonal-buttons button');
+                buttons.forEach((button, i) => button.classList.remove('selected' + i));
+
                 // 선택된 버튼에 선택 클래스 추가
-                buttonElement.classList.add('selected' +idx);
+                buttonElement.classList.add('selected' + idx);
                 selectedButtonNumber = buttonNumber;
                 selectedButtonColor = window.getComputedStyle(buttonElement).backgroundColor;
             }
@@ -312,24 +262,24 @@
                 const newContent2 = document.createElement('span');
                 const newContent3 = document.createElement('span');
 
-                newContent1.textContent = `${selectedButtonNumber}:`
+                newContent1.textContent = `${selectedButtonNumber}: `;
                 newContent2.textContent = `${content}`;
                 newContent3.textContent = getCurrentDateTime();
-                
+
                 newContent1.style.color = selectedButtonColor; // 텍스트 색상 변경
                 newContent2.style.color = '#000'; // 텍스트 색상 변경
-                
-                newContent.appendChild(newContent3);
+
                 newContent.appendChild(newContent1);
                 newContent.appendChild(newContent2);
+                newContent.appendChild(newContent3);
                 displayArea.appendChild(newContent);
 
                 inputField.value = ''; // 입력 필드 초기화
                 selectedButtonNumber = ''; // 선택된 버튼 번호 초기화
 
                 // 모든 버튼의 선택 클래스 제거
-                const buttons = document.querySelectorAll('.vertical-buttons button');
-                buttons.forEach((button, i) => button.classList.remove('selected'+i));
+                const buttons = document.querySelectorAll('.horizonal-buttons button');
+                buttons.forEach((button, i) => button.classList.remove('selected' + i));
             }
 
             function handleKeyPress(event) {
@@ -344,7 +294,7 @@
             const time = now.toLocaleTimeString('ko-KR');
             return `${date} ${time}`;
             }
-           
+            
 
             function showSubmitMessage() {
                 var result = confirm("제출되었습니다. 다시 검색하시겠습니까?");
@@ -380,7 +330,7 @@
                     addfree.style.display = 'none';
                 }
             });
-           
+            
             
             // Function to generate a random post number
             function generatePostNumber() {
@@ -448,6 +398,6 @@
                     });
                 };
         </script>
-        <script src="js/handlebars.test.js"></script>
-    </body>
+    <script src="js/handlebars.test.js"></script>
+        
 </html>
