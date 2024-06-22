@@ -31,9 +31,9 @@
         </aside>
         <main>
             <div class="box">
-                <div >
-                    접수번호 :
-                </div>
+                <div class="box">
+                    접수번호: <span id="receipt-number"></span>
+                  </div>
                 <div>
                     접수날짜
                 </div>
@@ -43,9 +43,7 @@
                 </div>
             <div class="box">
                 접수방법
-            </div>
-            <div class="box">
-                <select name="delivery-method">
+                <select id="delivery-method" name="delivery-method">
                     <option value="" disabled selected>접수 방법 선택</option>
                     <option value="예약방문">예약방문</option>
                     <option value="방문">방문</option>
@@ -160,6 +158,31 @@
         </div>
         </script>
         <script>
+           var count = 1; // 초기 접수번호 설정
+            var isNumberIncreased = false; // 번호가 이미 증가되었는지 여부를 나타내는 변수
+
+            // 셀렉트 박스에서 선택이 변경될 때마다 실행되는 함수
+            document.getElementById('delivery-method').addEventListener('change', function() {
+            // 이미 번호가 증가되었으면 아무 작업도 하지 않음
+            if (isNumberIncreased) {
+                return;
+            }
+
+            // 선택된 접수 방법 가져오기
+            var selectedMethod = this.value;
+
+            // 접수번호 업데이트
+            var receiptNumber = document.getElementById('receipt-number');
+            receiptNumber.textContent = count;
+
+            // 접수번호 증가
+            count++;
+
+            // 번호가 증가되었음을 표시
+            isNumberIncreased = true;
+            });
+
+
             function appendKm() {
                 var distanceInput = document.getElementById('distance');
                 var value = distanceInput.value;
