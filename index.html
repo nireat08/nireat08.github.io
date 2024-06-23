@@ -8,6 +8,42 @@
         <Title>AS 차트</Title>
     </head>
     <body>
+        <form id="dataForm">
+            <label for="date">pk_name:</label>
+            <input type="date" id="date" name="pk_name" required><br><br>
+
+            <label for="name">제조일자:</label>
+            <input type="text" id="name_test" name="제조일자" required><br><br>
+
+            <label for="phone">부품번호:</label>
+            <input type="tel" id="phone" name="제조일자" required><br><br>
+
+            <label for="content">내용:</label>
+            <textarea id="contents" name="내용" required></textarea><br><br>
+
+            <button type="submit">제출</button>
+        </form>
+
+        <script>
+            document.querySelector('#dataForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const data = {};// JSON
+
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+
+                addData("PART_TABLE", data);
+            })
+
+        </script>
+
+
+
+
+
         <header>header
             <button><a href="main.html">처음으로</a></button>
             <button><a href="index.html">임시버튼</a></button>
@@ -244,7 +280,7 @@
                 }
             }    
 
-            
+
 
             let selectedButtonNumber = '';
             let selectedButtonColor = '';
@@ -319,8 +355,7 @@
                 // 아무 동작 없음
                 }
             }
-            
-            
+
             // Function to generate a random post number
             function generatePostNumber() {
                 return Math.floor(Math.random() * 1000) + 1; // Adjust range as needed
