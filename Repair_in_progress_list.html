@@ -33,64 +33,53 @@
             <table>
                 <thead>
                     <tr>
-                        <th>번호</th>
-                        <th>날짜</th>
-                        <th>진행 중 여부</th>
-                        <th>유료/무료</th>
+                        <th>접수번호</th>
+                        <th>접수날짜</th>
+                        <th>처리상황</th>
+                        <th>결제유형</th>
                         <th>접수방법</th>
-                        <th>작성자</th>
-                        <th>내용</th>
+                        <th>이름</th>
+                        <th>고장증상</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2024-06-01</td>
-                        <td>무료</td>
-                        <td>작성자</td>
-                        <td>새로운 기능 소개</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2024-06-05</td>
-                        <td>유료</td>
-                        <td>고급 사용법 튜토리얼</td>
-                        <td>새로운 기능 소개</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>2024-06-10</td>
-                        <td>무료</td>
-                        <td>업데이트 소식</td>
-                        <td>새로운 기능 소개</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>2024-06-15</td>
-                        <td>유료</td>
-                        <td>전문가 인터뷰</td>
-                        <td>새로운 기능 소개</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>2024-06-20</td>
-                        <td>무료</td>
-                        <td>사용자 피드백 모음</td>
-                        <td>새로운 기능 소개</td>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
+                <tbody id="content">
                 </tbody>
             </table>
         </main>
-        <footer>퇴근전 [           ] 꺼내놓기</footer> 
-    
+        <footer>퇴근전 [           ] 꺼내놓기</footer>
+
+    <script src="js/lib/jquery-3.2.1.min.js"></script>
+    <script src="js/lib/handlebars.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/util.js"></script>
+    <script id="task-view-template" type="text/x-handlebars-template">
+
+        {{#each data}}
+        <tr>
+            <td>{{접수번호}}</td>
+            <td>{{접수날짜}}</td>
+            <td>{{처리상황}}</td>
+            <td>{{결제유형}}</td>
+            <td>{{접수방법}}</td>
+            <td>{{이름}}</td>
+            <td>{{고장증상}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <script>
+        getData('TASK_TABLE', {}, function(data) {
+            // 템플릿 가져오기
+            var source = document.getElementById("task-view-template").innerHTML;
+
+            // 템플릿 컴파일
+            var template = Handlebars.compile(source);
+
+            // 데이터를 템플릿에 바인딩
+            var html = template({ data: data});
+
+            // 결과를 HTML에 삽입
+            document.getElementById("content").innerHTML = html;
+        })
+
+    </script>
     </body> 
