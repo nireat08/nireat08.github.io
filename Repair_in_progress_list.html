@@ -51,7 +51,7 @@
                         <span>완료</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Reservation_reception.html">
+                    <a class="nav-link" href="Reservation_reception2.html">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>예약접수</span></a>
                 </li>
@@ -126,26 +126,7 @@
                                                     <th>고장증상</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td>System Architect</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>61</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>$320,800</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Garrett Winters</td>
-                                                    <td>Accountant</td>
-                                                    <td>Tokyo</td>
-                                                    <td>63</td>
-                                                    <td>2011/07/25</td>
-                                                    <td>$170,750</td>
-                                                    <td>$170,750</td>
-                                                </tr>
-                                                
+                                            <tbody id="hbs-content">
                                             </tbody>
                                         </table>
                                     </div>
@@ -220,7 +201,7 @@
             var html = template({ data: data});
 
             // 결과를 HTML에 삽입
-            document.getElementById("content").innerHTML = html;
+            document.getElementById("hbs-content").innerHTML = html;
         })
 
     </script>
