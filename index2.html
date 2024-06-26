@@ -1,0 +1,504 @@
+<!DOCTYPE html> 
+    <html> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>AS Chart</title>
+            <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    </head>
+    <body id="page-top">
+
+        <div id="wrapper">
+            <!-- START 사이드바 -->
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <!-- 로고 -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="main.html">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-laugh-wink"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">AS Chart</div>
+                </a>
+                <hr class="sidebar-divider my-0"> <!-- 구분선 -->
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="main.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>메인페이지</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>신청 폼 작성하기</span></a>
+                </li>
+                
+                <hr class="sidebar-divider"> <!-- 구분선 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="Repair_in_progress_list.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>진행중</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="complete.html">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>완료</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Reservation_reception.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>예약접수</span></a>
+                </li>
+                <hr class="sidebar-divider"> <!-- 구분선 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>부품사용</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>선발송</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>제공</span></a>
+                </li>
+                <hr class="sidebar-divider d-none d-md-block"><!-- 구분선 -->
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </ul>
+            <!-- // END 사이드바 -->
+
+            <!-- START 사이드바 오른쪽영역 -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <!-- START 상단 내비게이션 -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+    
+                        <!-- Topbar Search -->
+                        <form onsubmit="showSubmitMessage(); return false;" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <label for="name"></label>
+                                <input id="name" name="name" type="text" class="form-control bg-light border-0 small" placeholder="이름을 입력해주세요." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <input class="btn btn-primary" type="submit" />
+                                </div>
+                            </div>
+                        </form>
+    
+                    </nav>
+                    <!-- // END 상단 내비게이션 -->
+
+
+                    <!-- START: 각 페이지별 본문영역시작 -->
+                    <div class="container-fluid">
+                        <!-- !!!!!!!!!!!!!!!!!!HERE!!!!!!!!!!!!!!!!!! -->
+                        <!-- 여기에 본문에 들어갈 마크업을 작성하세요. -->
+                    </div>
+                    <!-- // END: 각 페이지별 본문영역시작 -->
+
+                </div>
+                <!-- START: 푸터 -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>퇴근전 [           ] 꺼내놓기</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- //END: 푸터 -->
+            </div>
+            <!-- END 본문내용끝 -->
+        </div>
+        <!-- 상단위로 버튼-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        
+        <main>
+            <div class="box">
+                <div class="box">
+                    접수번호: <span id="receipt-number"></span>
+                  </div>
+                <div>
+                    접수날짜
+                </div>
+                <div>
+                    <button>임시저장</button>
+                    <button>저장</button>                
+                </div>
+            <div class="box">
+                접수방법
+                <select id="delivery-method" name="delivery-method">
+                    <option value="" disabled selected>접수 방법 선택</option>
+                    <option value="예약방문">예약방문</option>
+                    <option value="방문">방문</option>
+                    <option disabled >-----</option>
+                    <option value="영업 외 시간 놓고 감">영업 외 시간 놓고 감</option>
+                    <option value="맡기고 감">예약 후 맡기고 감</option>
+                    <option disabled >-----</option>
+                    <option value="퀵 서비스">퀵 서비스</option>
+                    <option value="택배">택배</option>
+                </select>
+            </div>
+            <div>
+                <select name="delivery-method">
+                    <option value="" disabled selected>AS 후 수령 방법 선택</option>
+                    <option value="전화 주면 방문">전화 주면 방문</option>
+                    <option value="기다림">기다림</option>
+                    <option disabled >-----</option>
+                    <option value="영업 외 시간 놓고 감">영업 외 시간 찾아 감</option>
+                    <option value="맡기고 감">맡기고 감</option>
+                    <option disabled >-----</option>
+                    <option value="퀵 서비스">퀵 서비스</option>
+                    <option value="택배">택배</option>
+                </select>
+            </div>
+            
+            <div>
+                <input type="text" id="model" name="model" placeholder="모델" required>
+                <input type="text" id="distance" name="distance" placeholder="주행거리" required oninput="appendKm()">
+                <input type="text" id="store" name="store" placeholder="구입처" required><br>
+                <input type="text" id="name1" name="name" placeholder="이름" required>
+                <input type="tel" id="contact" name="contact" placeholder="연락처" required><br>
+                <input type="text" id="address" name="address" placeholder="주소" required class="wide">
+            </div>
+            <div>
+                <label>고장 증상</label><br>
+                <select>
+                    <option value="" disabled selected>증상 카테고리</option>
+                    <option disabled>↓배터리↓</option>
+                    <option value="전화 주면 방문">→ 충전불가</option>
+                    <option value="기다림">→ 방전불가</option>
+                    <option value="기다림">→ 주행 중 꺼짐</option>
+                    <option disabled >↓소음↓</option>
+                    <option value="영업 외 시간 놓고 감">→ 주행 중 소음</option>
+                    <option value="맡기고 감">→ 기기 소음</option>
+                    <option value="맡기고 감">→ 제동 시 소음</option>
+                    <option disabled >↓제동문제↓</option>
+                    <option value="퀵 서비스">→ 브레이크 작동 불가</option>
+                    <option value="택배">→ 블리딩</option>
+                    <option disabled >↓휠↓</option>
+                    <option value="퀵 서비스">→ 유성기어 파손</option>
+                    <option value="택배">→ 모터 제외 휠 교체</option>
+                    <option value="퀵 서비스">→ 베어링교체</option>
+                    <option value="택배">→ 스포크 파손</option>
+                    <option disabled >↓프레임↓</option>
+                    <option value="퀵 서비스">→ 프레임 파손</option>
+                    <option value="택배">→ 킥스탠드 프레임 파손</option>
+                    <option value="퀵 서비스">→ 삼각링크 교체</option>
+                    <option value="택배">→ 리코일링</option>
+
+                </select>
+                <input type="text" id="symptom" name="symptom" placeholder="고장증상입력" required class="wide3">
+                <button onclick="addContent()">입력</button>
+                <div id="displayArea"></div>
+            </div>
+            <div>
+                <label>점검 과정</label>
+                <div class="horizonal-buttons">
+                    <button onclick="selectButton('해솔', this, 0)">해솔</button>
+                    <button onclick="selectButton('태린', this, 1)">태린</button>
+                    <button onclick="selectButton('원욱', this, 2)">원욱</button>
+                    <button onclick="selectButton('완희', this, 3)">완희</button>
+                    <button onclick="selectButton('본석', this, 4)">본석</button>
+                    <button onclick="selectButton('민기', this, 5)">민기</button>
+                </div>
+                <input type="text" id="inputField" placeholder="내용을 입력하세요" onkeypress="handleKeyPress(event)" required class="wide3">
+                <button onclick="addContent()">입력</button>
+                <div id="displayArea"></div>
+            </div>
+            <div>
+                결제하실 금액 : 
+                <input type="number" name="payment" value="결제금액" >
+            </div>
+            <div>
+                <input type="radio" name="pay" value="무상" onclick="toggleFields()">무상
+                <input type="radio" name="pay" value="유상" onclick="toggleFields()">유상
+                <input type="radio" name="pay" value="부분유상" onclick="toggleFields()">부분유상
+                <div id="payment-method" class="hidden">
+                    <select name="delivery-method">
+                        <option value="" disabled selected>결제방법선택</option>
+                        <option value="카드">카드</option>
+                        <option value="현금">현금</option>
+                    </select>
+                </div>
+                <div id="receipt-date" class="hidden">
+                    영수증 날짜: <input type="date" name="receipt-date">
+                </select>
+            </div>
+        </div>
+                                
+        </main>
+        
+    </body>
+  
+              
+        <div id="content"></div>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/datatables-demo.js"></script>
+        <script src="js/lib/handlebars.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/util.js"></script>
+        
+        <script>
+        //    var count = 1; // 초기 접수번호 설정
+        //     var isNumberIncreased = false; // 번호가 이미 증가되었는지 여부를 나타내는 변수
+
+        //     // 셀렉트 박스에서 선택이 변경될 때마다 실행되는 함수
+        //     document.getElementById('delivery-method').addEventListener('change', function() {
+        //     // 이미 번호가 증가되었으면 아무 작업도 하지 않음
+        //     if (isNumberIncreased) {
+        //         return;
+        //     }
+
+        //     // 선택된 접수 방법 가져오기
+        //     var selectedMethod = this.value;
+
+        //     // 접수번호 업데이트
+        //     var receiptNumber = document.getElementById('receipt-number');
+        //     receiptNumber.textContent = count;
+
+        //     // 접수번호 증가
+        //     count++;
+
+        //     // 번호가 증가되었음을 표시
+        //     isNumberIncreased = true;
+        //     });
+
+
+        //     function appendKm() {
+        //         var distanceInput = document.getElementById('distance');
+        //         var value = distanceInput.value;
+        //         var kmSuffix = " km";
+
+        //         // 숫자만 남기고 나머지는 제거
+        //         var numericValue = value.replace(/\D/g, '');
+
+        //         // 입력 값이 있을 때만 'km'를 추가
+        //         if (numericValue.length > 0) {
+        //             distanceInput.value = numericValue + kmSuffix;
+        //         } else {
+        //             distanceInput.value = "";
+        //         }
+        //     }
+
+        //     // 무상, 유상, 부분유상 토클 위치에 따른 보이는 메뉴 다르게 하기
+        //     function toggleFields() {
+        //         var radios = document.getElementsByName('pay');
+        //         var paymentMethod = document.getElementById('payment-method');
+        //         var receiptDate = document.getElementById('receipt-date');
+        //         var showPaymentSelect = false;
+        //         var showReceiptDate = false;
+
+        //         for (var i = 0; i < radios.length; i++) {
+        //             if (radios[i].checked) {
+        //                 if (radios[i].value === '유상' || radios[i].value === '부분유상') {
+        //                     showPaymentSelect = true;
+        //                 } else if (radios[i].value === '무상') {
+        //                     showReceiptDate = true;
+        //                 }
+        //             }
+        //         }
+
+        //         if (showPaymentSelect) {
+        //             paymentMethod.classList.remove('hidden');
+        //         } else {
+        //             paymentMethod.classList.add('hidden');
+        //         }
+
+        //         if (showReceiptDate) {
+        //             receiptDate.classList.remove('hidden');
+        //         } else {
+        //             receiptDate.classList.add('hidden');
+        //         }
+        //     }
+
+
+
+        //     function showWarning() {
+        //         alert('Warning: 하나의 버튼만 선택 가능합니다.');
+        //         if (result) {
+        //         // Yes 클릭 시 동작
+        //         // 창을 닫는다
+        //         selectedButton = null;
+        //         } else {
+        //         // No 클릭 시 동작
+        //         // 아무 동작 없음
+        //         }
+        //     }    
+
+
+
+        //     let selectedButtonNumber = '';
+        //     let selectedButtonColor = '';
+
+        //     function selectButton(buttonNumber, buttonElement, idx) {
+        //         // 모든 버튼의 선택 클래스 제거
+        //         const buttons = document.querySelectorAll('.horizonal-buttons button');
+        //         buttons.forEach((button, i) => button.classList.remove('selected' + i));
+
+        //         // 선택된 버튼에 선택 클래스 추가
+        //         buttonElement.classList.add('selected' + idx);
+        //         selectedButtonNumber = buttonNumber;
+        //         selectedButtonColor = window.getComputedStyle(buttonElement).backgroundColor;
+        //     }
+
+        //     function addContent() {
+        //         if (selectedButtonNumber === '') {
+        //             alert('먼저 번호 버튼을 선택하세요.');
+        //             return;
+        //         }
+
+        //         const inputField = document.getElementById('inputField');
+        //         const content = inputField.value;
+        //         const displayArea = document.getElementById('displayArea');
+        //         const newContent = document.createElement('div');
+        //         const newContent1 = document.createElement('span');
+        //         const newContent2 = document.createElement('span');
+        //         const newContent3 = document.createElement('span');
+
+        //         newContent1.textContent = `${selectedButtonNumber}: `;
+        //         newContent2.textContent = `${content}`;
+        //         newContent3.textContent = getCurrentDateTime();
+
+        //         newContent1.style.color = selectedButtonColor; // 텍스트 색상 변경
+        //         newContent2.style.color = '#000'; // 텍스트 색상 변경
+
+        //         newContent.appendChild(newContent1);
+        //         newContent.appendChild(newContent2);
+        //         newContent.appendChild(newContent3);
+        //         displayArea.appendChild(newContent);
+
+        //         inputField.value = ''; // 입력 필드 초기화
+        //         selectedButtonNumber = ''; // 선택된 버튼 번호 초기화
+
+        //         // 모든 버튼의 선택 클래스 제거
+        //         const buttons = document.querySelectorAll('.horizonal-buttons button');
+        //         buttons.forEach((button, i) => button.classList.remove('selected' + i));
+        //     }
+
+        //     function handleKeyPress(event) {
+        //         if (event.key === 'Enter') {
+        //             addContent();
+        //         }
+        //     }
+
+        //     function getCurrentDateTime() {
+        //     const now = new Date();
+        //     const date = now.toLocaleDateString('ko-KR');
+        //     const time = now.toLocaleTimeString('ko-KR');
+        //     return `${date} ${time}`;
+        //     }
+            
+
+        //     function showSubmitMessage() {
+        //         var result = confirm("제출되었습니다. 다시 검색하시겠습니까?");
+        //         if (result) {
+        //         // Yes 클릭 시 동작
+        //         // 창을 닫는다
+        //         window.close();
+        //         } else {
+        //         // No 클릭 시 동작
+        //         // 아무 동작 없음
+        //         }
+        //     }
+
+        //     // Function to generate a random post number
+        //     function generatePostNumber() {
+        //         return Math.floor(Math.random() * 1000) + 1; // Adjust range as needed
+        //     }
+
+        //     function setLabelPosition(position) {
+        //         document.getElementById('label-position').value = position;
+        //     }
+            
+        //     $(document).ready(function() {
+        //         // API 호출
+        //         $.ajax({
+        //             url: 'localhost',
+        //             method: 'GET',
+        //             dataType: 'json',
+        //             success: function(response) {
+        //                 // 템플릿 가져오기
+        //                 var source = document.getElementById("entry-template").innerHTML;
+
+        //                 // 템플릿 컴파일
+        //                 var template = Handlebars.compile(source);
+
+        //                 // 데이터를 템플릿에 바인딩
+        //                 var html = template({data: response});
+
+        //                 // 결과를 HTML에 삽입
+        //                 document.getElementById("content").innerHTML = html;
+        //             },
+        //             error: function(error) {
+        //                 console.error('Error fetching data', error);
+        //             }
+        //         });
+        //     });
+            
+
+        //         // 모델 리스트 (실제로는 데이터베이스나 API에서 가져오는 것이 일반적)
+        //         const models = [
+        //             "모델1",
+        //             "모델2",
+        //             "모델3",
+        //             "모델4",
+        //             // 필요한 만큼 추가
+        //         ];
+
+        //         // 입력 창과 관련된 JavaScript 코드
+        //         window.onload = function() {
+        //             const input = document.getElementById('name');
+
+        //             // 입력이 바뀔 때마다 자동 완성 기능 실행
+        //             input.addEventListener('input', function() {
+        //                 const searchText = input.value.trim(); // 입력된 텍스트
+
+        //                 // 모델 리스트에서 정확히 일치하는 모델 찾기
+        //                 const suggestion = models.find(function(model) {
+        //                     return model === searchText;
+        //                 });
+
+        //                 // 정확히 일치하는 모델이 있다면 제안
+        //                 if (suggestion) {
+        //                     alert('관련 검색어: ' + suggestion);
+        //                 } else {
+        //                     alert('일치하는 모델이 없습니다.');
+        //                 }
+        //             });
+        //         };
+        </script>
+    <script src="js/handlebars.test.js"></script>
+        
+</html>
