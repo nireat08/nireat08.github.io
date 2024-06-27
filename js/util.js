@@ -52,3 +52,18 @@ function deleteData(tableName, queryParams, callbackFunction) {
         }
     });
 }
+
+// DB에 있는 데이터 업데이트 params 에 수정할 row의 'pk_~'값 필수
+function updateData(tableName, params, callbackFunction) {
+    $.ajax({
+        url: getCookieValue("apiUrl") + '/' + tableName,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(params),
+        dataType: 'json',
+        success: callbackFunction,
+        error: function(error) {
+            console.error(error.responseJSON);
+        }
+    });
+}
