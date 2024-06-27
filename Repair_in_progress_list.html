@@ -198,7 +198,7 @@
             var template = Handlebars.compile(source);
 
             // 데이터를 템플릿에 바인딩
-            var html = template({ data: data});
+            var html = template({ data: jsonSort(data, '접수번호', true)});
 
             // 결과를 HTML에 삽입
             document.getElementById("hbs-content").innerHTML = html;

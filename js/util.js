@@ -67,3 +67,11 @@ function updateData(tableName, params, callbackFunction) {
         }
     });
 }
+
+function jsonSort(data, keyName, 내림차순정렬) {
+    if (내림차순정렬) {
+        return data.sort((a, b) => b[keyName] - a[keyName]);
+    } else {
+        return data.sort((a, b) => a[keyName] - b[keyName]);
+    }
+}
