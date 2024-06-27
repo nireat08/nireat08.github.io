@@ -146,7 +146,8 @@
                                     <div>
                                         <input type="text" id="model" name="모델" placeholder="모델" required>
                                         <input type="text" id="distance" name="주행거리" placeholder="주행거리" required oninput="appendKm()">
-                                        <input type="text" id="store" name="구입처" placeholder="구입처" required><br>
+                                        <input list="myOptions" id="store" name="구입처" placeholder="구입처" autocomplete="off" required><br>
+                                        <datalist id="myOptions"></datalist>
                                         <input type="text" id="name1" name="이름" placeholder="이름" required>
                                         <input type="tel" id="contact" name="pk_phone" placeholder="연락처" required><br>
                                         <input type="text" id="address" name="주소" placeholder="주소" required class="wide">
@@ -233,7 +234,6 @@
     </body>
   
               
-        <div id="content"></div>
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -253,9 +253,45 @@
         <script src="js/lib/handlebars.min.js"></script>
         <script src="js/lib/bootstrap.min.js"></script>
         <script src="js/util.js"></script>
-        
-        <script id="entry-template" type="text/x-handlebars-template"></script>
+
+        <script id="store-datalist-template" type="text/x-handlebars-template">
+            {{#each clientData}}
+            <option value="{{pk_client_name}}"></option>
+            {{/each}}
+        </script>
         <script>
+            getData('CLIENT_TABLE', {}, function(clientData) {
+                const datalist = document.getElementById("myOptions");
+                const storeInput = document.querySelector('input[name=구입처]');
+                const addressInput = document.querySelector('input[name=주소]');
+
+                // 템플릿 가져오기
+                let source = document.getElementById("store-datalist-template").innerHTML;
+                // 템플릿 컴파일
+                let template = Handlebars.compile(source);
+                // 데이터를 템플릿에 바인딩
+                let html = template({ clientData: clientData});
+
+                storeInput.addEventListener("input", () => {
+                    if (storeInput.value.trim() === "") {
+                        datalist.innerHTML = "";
+                    } else if (!datalist.innerHTML) {
+                        datalist.innerHTML = html;
+                    }
+                });
+
+                // 옵션 선택시 다른 input 자동입력 기능
+                // storeInput.addEventListener("change", () => {
+                //     const selectedStore = clientData.find(store => store.pk_client_name === storeInput.value);
+                //
+                //     if (selectedStore) {
+                //         addressInput.value = selectedStore.주소;
+                //     } else {
+                //         addressInput.value = '';
+                //     }
+                // });
+            });
+
             document.querySelector('#dataForm').addEventListener('submit', function(event) {
                 event.preventDefault();
                 const formData = new FormData(event.target);
